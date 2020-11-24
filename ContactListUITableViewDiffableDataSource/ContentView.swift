@@ -7,10 +7,56 @@
 
 import SwiftUI
 
+enum SectionType {
+    case ceo, peasants
+}
+
+struct Contact: Hashable {
+    let name: String
+}
+
 class DiffableTableViewController: UITableViewController {
     
     //UITableViewDiffableDataSource
     
+    lazy var source: UITableViewDiffableDataSource<SectionType, Contact> = .init(tableView: self.tableView) { (_, indexPath, contact) -> UITableViewCell? in
+        
+        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+        cell.textLabel?.text = contact.name
+        
+        return cell
+    }
+    
+    private func setupSource(){
+        
+        var snapshot = source.snapshot()
+        snapshot.appendSections([.ceo, .peasants])
+        snapshot.appendItems([
+            .init(name: "Elon Musk"),
+            .init(name: "Tim Cook")
+        ], toSection: .ceo)
+        
+        snapshot.appendItems([
+            .init(name: "Bill Gates")
+        ], toSection: .peasants)
+        
+        source.apply(snapshot)
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let label = UILabel()
+        label.text = section == 0 ? "CEO" : "Peasants"
+        
+        return label
+        
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,10 +64,13 @@ class DiffableTableViewController: UITableViewController {
         navigationItem.title = "Contacts"
         navigationController?.navigationBar.prefersLargeTitles = true
         
+        
+        setupSource()
     }
     
 }
 
+//UIViewControllerRepresentable it's a protocol that lets you use ViewController in SwiftUI
 struct DiffableContainer: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> UIViewController {
         UINavigationController(rootViewController:
