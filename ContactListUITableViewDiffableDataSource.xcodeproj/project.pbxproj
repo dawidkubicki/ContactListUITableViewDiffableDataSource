@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		127F021E256EBDDA003F5079 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127F021D256EBDDA003F5079 /* ContactCell.swift */; };
 		12B39A72256C0F2B0060276F /* ContactListUITableViewDiffableDataSourceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B39A71256C0F2B0060276F /* ContactListUITableViewDiffableDataSourceApp.swift */; };
 		12B39A74256C0F2B0060276F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B39A73256C0F2B0060276F /* ContentView.swift */; };
 		12B39A76256C0F2C0060276F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12B39A75256C0F2C0060276F /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		127F021D256EBDDA003F5079 /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
 		12B39A6E256C0F2B0060276F /* ContactListUITableViewDiffableDataSource.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactListUITableViewDiffableDataSource.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12B39A71256C0F2B0060276F /* ContactListUITableViewDiffableDataSourceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListUITableViewDiffableDataSourceApp.swift; sourceTree = "<group>"; };
 		12B39A73256C0F2B0060276F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -54,6 +56,7 @@
 			children = (
 				12B39A71256C0F2B0060276F /* ContactListUITableViewDiffableDataSourceApp.swift */,
 				12B39A73256C0F2B0060276F /* ContentView.swift */,
+				127F021D256EBDDA003F5079 /* ContactCell.swift */,
 				12B39A75256C0F2C0060276F /* Assets.xcassets */,
 				12B39A7A256C0F2C0060276F /* Info.plist */,
 				12B39A77256C0F2C0060276F /* Preview Content */,
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				127F021E256EBDDA003F5079 /* ContactCell.swift in Sources */,
 				12B39A74256C0F2B0060276F /* ContentView.swift in Sources */,
 				12B39A72256C0F2B0060276F /* ContactListUITableViewDiffableDataSourceApp.swift in Sources */,
 			);

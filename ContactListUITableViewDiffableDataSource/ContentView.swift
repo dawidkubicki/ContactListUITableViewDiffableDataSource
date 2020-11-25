@@ -15,14 +15,17 @@ struct Contact: Hashable {
     let name: String
 }
 
+
 class DiffableTableViewController: UITableViewController {
     
     //UITableViewDiffableDataSource
     
     lazy var source: UITableViewDiffableDataSource<SectionType, Contact> = .init(tableView: self.tableView) { (_, indexPath, contact) -> UITableViewCell? in
         
-        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-        cell.textLabel?.text = contact.name
+        let cell = ContactCell(style: .default, reuseIdentifier: nil)
+        //cell.textLabel?.text = contact.name
+        
+        cell.viewModel.name = contact.name
         
         return cell
     }
@@ -32,12 +35,12 @@ class DiffableTableViewController: UITableViewController {
         var snapshot = source.snapshot()
         snapshot.appendSections([.ceo, .peasants])
         snapshot.appendItems([
-            .init(name: "Elon Musk"),
-            .init(name: "Tim Cook")
+            .init(name: "1"),
+            .init(name: "1")
         ], toSection: .ceo)
         
         snapshot.appendItems([
-            .init(name: "Bill Gates")
+            .init(name: "1")
         ], toSection: .peasants)
         
         source.apply(snapshot)
